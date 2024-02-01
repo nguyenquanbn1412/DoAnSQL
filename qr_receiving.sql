@@ -1,4 +1,6 @@
+create database qr_receiving
 
+	
 ############	TABLE	#################
 
 CREATE TABLE PDC_RECEIVE_PART_TODAY (
