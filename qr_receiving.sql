@@ -1,4 +1,4 @@
-create database qr_receiving
+  create database qr_receiving;
 
 	
 ############	TABLE	#################
@@ -136,6 +136,36 @@ CREATE TABLE QR_CART_DIRECT (
 );
 
 
+CREATE TABLE QR_HISTORY_CASEMARK (
+    partNo VARCHAR(255) NULL,
+    dieLine VARCHAR(255) NULL,
+    vendor VARCHAR(255) NULL,
+    lot VARCHAR(255) NULL,
+    boxNumber VARCHAR(255) NULL,
+    boxQty INT NULL,
+    shift VARCHAR(255) NULL,
+    hisRev VARCHAR(255) NULL,
+    cavity VARCHAR(255) NULL,
+    remark VARCHAR(255) NULL,
+    codeTransfer VARCHAR(255) NULL,
+    receivedDate VARCHAR(255) NULL,
+    receivedTime VARCHAR(255) NULL,
+    receivedLoc VARCHAR(255) NULL,
+    receivedLot VARCHAR(255) NULL,
+    employeeCode VARCHAR(255) NULL,
+    shiftName VARCHAR(255) NULL,
+    shiftDate VARCHAR(255) NULL,
+    qrValue VARCHAR(450) NOT NULL,
+    movingBCFrom VARCHAR(255) NULL,
+    movingBCTo VARCHAR(255) NULL,
+    partNumber VARCHAR(255) NULL,
+    PRIMARY KEY (qrValue),
+    FOREIGN KEY (vendor) REFERENCES QR_VENDOR(VENDOR),
+    FOREIGN KEY (partNumber) REFERENCES QR_PART_INFOR(PART_NUMBER)
+);
+
+
+
 
 CREATE TABLE QR_BOX_CODE_PREPARE (
     BOX_CODE VARCHAR(450) NOT NULL,
@@ -264,33 +294,6 @@ CREATE TABLE QR_HISTORY_DELIVERY_PLAN (
 );
 
 
-CREATE TABLE QR_HISTORY_CASEMARK (
-    partNo VARCHAR(255) NULL,
-    dieLine VARCHAR(255) NULL,
-    vendor VARCHAR(255) NULL,
-    lot VARCHAR(255) NULL,
-    boxNumber VARCHAR(255) NULL,
-    boxQty INT NULL,
-    shift VARCHAR(255) NULL,
-    hisRev VARCHAR(255) NULL,
-    cavity VARCHAR(255) NULL,
-    remark VARCHAR(255) NULL,
-    codeTransfer VARCHAR(255) NULL,
-    receivedDate VARCHAR(255) NULL,
-    receivedTime VARCHAR(255) NULL,
-    receivedLoc VARCHAR(255) NULL,
-    receivedLot VARCHAR(255) NULL,
-    employeeCode VARCHAR(255) NULL,
-    shiftName VARCHAR(255) NULL,
-    shiftDate VARCHAR(255) NULL,
-    qrValue VARCHAR(450) NOT NULL,
-    movingBCFrom VARCHAR(255) NULL,
-    movingBCTo VARCHAR(255) NULL,
-    partNumber VARCHAR(255) NULL,
-    PRIMARY KEY (qrValue),
-    FOREIGN KEY (vendor) REFERENCES QR_VENDOR(VENDOR),
-    FOREIGN KEY (partNumber) REFERENCES QR_PART_INFOR(PART_NUMBER)
-);
 
 
 CREATE TABLE InventoryMovingHistory (
@@ -853,5 +856,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
